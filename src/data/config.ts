@@ -1,5 +1,5 @@
 export const SITE_CONFIG = {
-  domain: 'https://diskcacambasvr.com.br',
+  domain: 'https://www.diskcacambasvr.com.br',
   name: 'DiskCaçamba',
   description: 'A melhor opção de aluguel de caçambas em Volta Redonda. Atendimento rápido, descarte correto e orçamento sem compromisso.',
   address: {
