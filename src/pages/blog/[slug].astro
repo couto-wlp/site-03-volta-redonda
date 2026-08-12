@@ -1,0 +1,216 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((entry: CollectionEntry<'blog'>) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+type Props = {
+  entry: CollectionEntry<'blog'>;
+};
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const allPosts = await getCollection('blog');
+const relatedPosts = allPosts.filter((p: CollectionEntry<'blog'>) => p.slug !== entry.slug).slice(0, 3);
+---
+
+<Layout title={entry.data.title} description={entry.data.description}>
+	
+	<!-- Hero do Post colado no menu sem cortar texto -->
+	<div class="relative pt-6 pb-12 md:pt-10 md:pb-16 mb-16">
+		<!-- Fundo Laranja 100% que vaza a tela e cola no menu -->
+		<div class="absolute bg-orange-100 -z-10" style="width: 100vw; left: 50%; margin-left: -50vw; top: -120px; bottom: -20px;"></div>
+		
+		<div class="container mx-auto px-0 md:px-0">
+			<div class="relative z-10 max-w-4xl">
+				
+				<h1 class="text-[31px] md:text-[43px] font-black tracking-tighter leading-tight mb-6 text-black">
+					{entry.data.title}
+				</h1>
+				
+				<p class="text-lg text-slate-700 max-w-3xl leading-relaxed mb-10">
+					{entry.data.description}
+				</p>
+				
+				<div class="flex flex-col sm:flex-row gap-4">
+					<a href="https://wa.me/5584998035361" class="inline-flex justify-center items-center bg-primary text-white px-8 py-4 rounded-xl text-lg font-black tracking-tighter hover:brightness-110 transition-all shadow-md hover:scale-105 active:scale-95">
+						Orçamento via WhatsApp
+					</a>
+					<a href="/servicos" class="inline-flex justify-center items-center bg-white border-2 border-slate-200 text-slate-800 px-8 py-4 rounded-xl text-lg font-bold tracking-tighter hover:bg-slate-50 transition-all hover:scale-105 active:scale-95 shadow-sm">
+						Ver Caçambas
+					</a>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Conteúdo Markdown com Sidebar CTA -->
+	<div class="container mx-auto px-4 md:px-0 mt-12 mb-16 md:mb-24 max-w-6xl">
+		
+		<!-- Benefícios (Cards) - Acima do conteúdo e da lateral -->
+		<div class="mb-16">
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+				<div class="bg-slate-50 border border-slate-200/80 rounded-[28px] p-8 shadow-sm hover:shadow-md transition-shadow">
+					<div class="mb-6">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+					</div>
+					<h3 class="text-[21px] font-black tracking-tighter text-slate-900 mb-3">Logística de Alta Performance</h3>
+					<p class="text-[15px] text-slate-500 leading-relaxed">Sabemos que tempo é dinheiro. Garantimos a entrega e a retirada da caçamba de forma pontual, acompanhando o ritmo exato da sua reforma.</p>
+				</div>
+				
+				<div class="bg-slate-50 border border-slate-200/80 rounded-[28px] p-8 shadow-sm hover:shadow-md transition-shadow">
+					<div class="mb-6">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><line x1="9" y1="14" x2="15" y2="14"></line><line x1="9" y1="18" x2="15" y2="18"></line><line x1="9" y1="10" x2="15" y2="10"></line></svg>
+					</div>
+					<h3 class="text-[21px] font-black tracking-tighter text-slate-900 mb-3">Tranquilidade e Descarte Legal</h3>
+					<p class="text-[15px] text-slate-500 leading-relaxed">Operamos em estrita conformidade com a Secretaria Municipal de Meio Ambiente (SMMA). Emitimos o Manifesto de Transporte de Resíduos (MTR) para assegurar a legalidade da sua obra.</p>
+				</div>
+
+				<div class="bg-slate-50 border border-slate-200/80 rounded-[28px] p-8 shadow-sm hover:shadow-md transition-shadow">
+					<div class="mb-6">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+					</div>
+					<h3 class="text-[21px] font-black tracking-tighter text-slate-900 mb-3">Posicionamento Profissional</h3>
+					<p class="text-[15px] text-slate-500 leading-relaxed">Contamos com motoristas altamente qualificados para manobrar e instalar a caçamba no local adequado, respeitando as regras de trânsito e o fluxo das calçadas.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+			
+			<!-- Conteúdo Principal -->
+			<div class="lg:col-span-2">
+				<article class="prose prose-lg text-slate-700 prose-headings:font-black prose-headings:tracking-tighter prose-headings:text-black max-w-none prose-a:text-primary prose-a:font-bold hover:prose-a:text-primary prose-p:leading-relaxed prose-li:text-lg prose-img:rounded-3xl prose-img:shadow-md prose-img:w-full mb-20">
+					<Content />
+				</article>
+			</div>
+
+			<!-- Sidebar de Fechamento (CTA) e Outros Posts -->
+			<div>
+				<div class="sticky top-32 space-y-12">
+					
+					<div class="bg-orange-100 rounded-[32px] p-8 md:p-10 shadow-2xl text-center border border-orange-200/50">
+						<span class="block text-primary font-black tracking-widest uppercase text-[12px] mb-2">Orçamento Gratuito</span>
+						<h3 class="text-[24px] md:text-[26px] font-black tracking-tighter text-gray-900 mb-6 leading-[1.1]">Atendimento imediato na região?</h3>
+						
+						<div class="space-y-4">
+							<a href="https://wa.me/5584998035361" class="flex items-center justify-center gap-3 w-full bg-primary text-white p-3.5 rounded-xl text-[16px] font-black tracking-tighter hover:brightness-110 hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary/20">
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+								Pedir no WhatsApp
+							</a>
+							
+							<a href="https://wa.me/5584998035361" class="flex items-center justify-center gap-3 w-full bg-white border border-gray-200 text-gray-900 p-3.5 rounded-xl font-black tracking-tighter text-[16px] hover:bg-gray-50 transition-all shadow-sm">
+								<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+								Ligar Agora
+							</a>
+						</div>
+						
+						<div class="mt-6 pt-5 border-t border-orange-200">
+							<p class="text-[14px] text-gray-500 font-medium mb-1.5">Dúvidas? Fale com um especialista.</p>
+							<p class="text-[20px] font-black text-gray-900">(84) 99803-5361</p>
+						</div>
+					</div>
+
+					<!-- Outros Posts -->
+					{relatedPosts.length > 0 && (
+						<div class="bg-gray-50 rounded-3xl p-8 border border-gray-200/80 shadow-sm">
+							<h3 class="text-xl font-black tracking-tighter text-gray-900 mb-6 border-b border-gray-200 pb-4">Mais Dicas</h3>
+							<div class="space-y-6">
+								{relatedPosts.map((post: CollectionEntry<'blog'>) => (
+									<a href={`/blog/${post.slug}`} class="block group hover:scale-105 active:scale-95 transition-all">
+										<h4 class="font-bold tracking-tighter text-lg text-gray-900 group-hover:text-primary transition-colors mb-2 leading-snug">{post.data.title}</h4>
+										<p class="text-sm text-gray-600 line-clamp-2">{post.data.description}</p>
+									</a>
+								))}
+							</div>
+						</div>
+					)}
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- FAQ -->
+	<div class="bg-orange-100 py-16 md:py-24 my-0" style="width: 100vw; margin-left: calc(50% - 50vw);">
+		<div class="max-w-4xl mx-auto px-6 md:px-12">
+		<h2 class="text-[28px] md:text-[36px] font-black tracking-tighter text-black mb-12 text-center">
+			Dúvidas Comuns / <span class="text-primary">Perguntas Frequentes</span>
+		</h2>
+		
+		<div class="space-y-4">
+			<details class="group bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-md transition-shadow [&_summary::-webkit-details-marker]:hidden">
+				<summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-slate-900 text-[18px]">
+					Como funciona o aluguel de caçamba em Volta Redonda?
+					<span class="transition group-open:rotate-180 text-primary">
+						<svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+					</span>
+				</summary>
+				<div class="p-6 pt-0 text-slate-600 text-[16px] leading-relaxed">
+					Basta entrar em contato pelo WhatsApp e informar seu endereço. Entregamos a caçamba no local desejado de forma rápida e segura. Após o término, recolhemos e fazemos o descarte correto do entulho.
+				</div>
+			</details>
+
+			<details class="group bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-md transition-shadow [&_summary::-webkit-details-marker]:hidden">
+				<summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-slate-900 text-[18px]">
+					Por quantos dias posso ficar com a caçamba?
+					<span class="transition group-open:rotate-180 text-primary">
+						<svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+					</span>
+				</summary>
+				<div class="p-6 pt-0 text-slate-600 text-[16px] leading-relaxed">
+					O período padrão de locação é de até 5 dias. Caso precise de mais tempo, converse com nossa equipe para estender o prazo conforme a necessidade da sua obra.
+				</div>
+			</details>
+
+			<details class="group bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-md transition-shadow [&_summary::-webkit-details-marker]:hidden">
+				<summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-slate-900 text-[18px]">
+					O que não pode ser descartado na caçamba?
+					<span class="transition group-open:rotate-180 text-primary">
+						<svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+					</span>
+				</summary>
+				<div class="p-6 pt-0 text-slate-600 text-[16px] leading-relaxed">
+					É proibido o descarte de lixo orgânico, resíduos hospitalares, produtos químicos, pneus, tintas e óleos. A caçamba é destinada exclusivamente para entulhos de construção, podas e materiais recicláveis secos.
+				</div>
+			</details>
+
+			<details class="group bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-md transition-shadow [&_summary::-webkit-details-marker]:hidden">
+				<summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-slate-900 text-[18px]">
+					A caçamba pode ficar na rua ou calçada?
+					<span class="transition group-open:rotate-180 text-primary">
+						<svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+					</span>
+				</summary>
+				<div class="p-6 pt-0 text-slate-600 text-[16px] leading-relaxed">
+					Sim, desde que respeite as regras de trânsito e o espaço para pedestres. Nossos motoristas são treinados para fazer o posicionamento correto, evitando multas e transtornos na sua obra.
+				</div>
+			</details>
+
+			<details class="group bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-md transition-shadow [&_summary::-webkit-details-marker]:hidden">
+				<summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-slate-900 text-[18px]">
+					Quais são as formas de pagamento?
+					<span class="transition group-open:rotate-180 text-primary">
+						<svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+					</span>
+				</summary>
+				<div class="p-6 pt-0 text-slate-600 text-[16px] leading-relaxed">
+					Aceitamos PIX, cartões de crédito e débito, além de faturamento para empresas e obras maiores. Tudo para facilitar a gestão da sua construção.
+				</div>
+			</details>
+		</div>
+	</div>
+</div>
+
+</Layout>

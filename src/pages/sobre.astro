@@ -1,0 +1,179 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Cta from '../components/Cta.astro';
+import { Image } from 'astro:assets';
+import frotaImg from '../assets/nova-frota-sobre.jpg';
+---
+
+<Layout title="Sobre a DiskCaçamba">
+	
+	<!-- Hero Section -->
+	<div class="text-center mb-16">
+		<h1 class="text-[31px] md:text-[43px] font-black tracking-tighter leading-tight text-gray-900 mb-6">
+			Sobre <span class="text-primary">Nós</span>
+		</h1>
+		<p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-600">
+			Conheça a história e o compromisso ambiental da nossa empresa. Trabalhamos diariamente para oferecer soluções rápidas e eficientes para você.
+		</p>
+	</div>
+	
+	<!-- Main Content -->
+	<section class="py-16 md:py-24 max-w-7xl mx-auto px-6">
+		<div class="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-12 lg:gap-20">
+			
+			<!-- Left Column (Content) -->
+			<div class="space-y-16 mt-4">
+				
+				<!-- Block 1 -->
+				<div>
+					<div class="flex items-center gap-4 mb-6">
+						<div class="w-1.5 h-8 bg-primary rounded-full"></div>
+						<h2 class="text-2xl md:text-[28px] font-black tracking-tighter text-gray-900 uppercase">Nossa História e Propósito</h2>
+					</div>
+					<div class="text-gray-600 text-lg leading-relaxed space-y-5 ml-5">
+						<p>A <strong class="text-gray-900 font-bold">DiskCaçamba</strong> foi fundada em 2013 por Alberto Silva, com o objetivo claro de profissionalizar o serviço de remoção de resíduos e entulhos na cidade de Volta Redonda - RJ.</p>
+						<p>Percebendo as dificuldades enfrentadas por moradores, empreiteiros e construtoras para encontrar um serviço pontual, transparente e alinhado às normas ambientais, a empresa investiu em equipamentos resistentes e em uma logística eficiente.</p>
+						<p>Ao longo de mais de uma década de atuação, já realizamos mais de 1000 atendimentos, acompanhando o crescimento da construção civil no Sul Fluminense e nos tornando referência local em transporte e destinação de entulho.</p>
+					</div>
+				</div>
+
+				<!-- Block 2 -->
+				<div>
+					<div class="flex items-center gap-4 mb-6">
+						<div class="w-1.5 h-8 bg-primary rounded-full"></div>
+						<h2 class="text-2xl md:text-[28px] font-black tracking-tighter text-gray-900 uppercase">Compromisso com o Meio Ambiente</h2>
+					</div>
+					<div class="text-gray-600 text-lg leading-relaxed space-y-5 ml-5">
+						<p>Para nós, o trabalho não termina na coleta da caçamba. Acreditamos no descarte consciente e 100% legalizado.</p>
+						<p>Todo o material recolhido por nossas caçambas é transportado e destinado exclusivamente a locais e aterros de inertes devidamente licenciados pelos órgãos ambientais. Dessa forma, garantimos que sua obra ou reforma esteja em total conformidade com a legislação municipal e ambiental de Volta Redonda, evitando multas e protegendo o meio ambiente.</p>
+					</div>
+				</div>
+
+				<!-- Block 3 -->
+				<div>
+					<div class="flex items-center gap-4 mb-6">
+						<div class="w-1.5 h-8 bg-primary rounded-full"></div>
+						<h2 class="text-2xl md:text-[28px] font-black tracking-tighter text-gray-900 uppercase">Estrutura, Frota e Equipamentos</h2>
+					</div>
+					<div class="text-gray-600 text-lg leading-relaxed space-y-5 ml-5">
+						<p>Para atender desde pequenas reformas residenciais até grandes canteiros de obras, contamos com uma frota própria de caminhões operacionais e dezenas de caçambas, constantemente higienizados e vistoriados para garantir máxima segurança no tráfego urbano e no manuseio.</p>
+						
+						<h3 class="font-bold text-gray-900 text-xl mt-6 mb-4">Caçambas Disponíveis para Aluguel:</h3>
+						<ul class="list-disc list-inside space-y-3">
+							<li><strong class="text-gray-900 font-bold">Caçamba de 4m³ a 5m³:</strong> Ideal para pequenas reformas residenciais, limpeza de quintais e pequenos reparos.</li>
+							<li><strong class="text-gray-900 font-bold">Caçamba de 6m³ a 8m³:</strong> Indicada para obras de médio e grande porte, demolições e reformas comerciais.</li>
+							<li><strong class="text-gray-900 font-bold">Sistema Roll-on / Roll-off:</strong> Solução de alta capacidade para grandes volumes de resíduos industriais e construções pesadas.</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Block 4 -->
+				<div>
+					<div class="flex items-center gap-4 mb-6">
+						<div class="w-1.5 h-8 bg-primary rounded-full"></div>
+						<h2 class="text-2xl md:text-[28px] font-black tracking-tighter text-gray-900 uppercase">Nossos Serviços em Volta Redonda</h2>
+					</div>
+					<div class="text-gray-600 text-lg leading-relaxed space-y-5 ml-5">
+						<ul class="list-disc list-inside space-y-3">
+							<li><strong class="text-gray-900 font-bold">Aluguel de Caçambas Estacionárias:</strong> Entrega e retirada programadas conforme a necessidade do seu projeto.</li>
+							<li><strong class="text-gray-900 font-bold">Retirada de Entulho de Construção Civil:</strong> Coleta rápida de restos de tijolos, concreto, azulejos e argamassa.</li>
+							<li><strong class="text-gray-900 font-bold">Limpeza de Terrenos e Reformas:</strong> Remoção de resíduos diversos de preparações de terreno ou reformas residenciais e comerciais.</li>
+							<li><strong class="text-gray-900 font-bold">Atendimento Empresarial e Construtoras:</strong> Soluções personalizadas com emissão de documentação de transporte e contratos flexíveis.</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Block 5 -->
+				<div>
+					<div class="flex items-center gap-4 mb-6">
+						<div class="w-1.5 h-8 bg-primary rounded-full"></div>
+						<h2 class="text-2xl md:text-[28px] font-black tracking-tighter text-gray-900 uppercase">Por que Escolher a DiskCaçamba?</h2>
+					</div>
+					<div class="text-gray-600 text-lg leading-relaxed space-y-5 ml-5">
+						<ul class="list-disc list-inside space-y-3">
+							<li><strong class="text-gray-900 font-bold">Atendimento Estritamente Local:</strong> Foco exclusivo em Volta Redonda - RJ, garantindo entregas e trocas mais rápidas.</li>
+							<li><strong class="text-gray-900 font-bold">Pontualidade e Logística:</strong> Entregamos e retiramos no prazo combinado para não atrasar o cronograma da sua obra.</li>
+							<li><strong class="text-gray-900 font-bold">Preço Justo e Transparência:</strong> Sem taxas ocultas na locação do equipamento.</li>
+							<li><strong class="text-gray-900 font-bold">Frota Própria e Diversificada:</strong> Caçambas adequadas para qualquer volume de entulho.</li>
+						</ul>
+					</div>
+				</div>
+				
+				<!-- Block 6: Contact Info Box -->
+				<div class="bg-orange-50 p-8 md:p-10 rounded-3xl mt-12 border border-orange-100 shadow-sm ml-5">
+					<h3 class="font-black text-xl text-gray-900 mb-6 uppercase tracking-tighter">Onde Estamos e Como Falar Conosco</h3>
+					<ul class="space-y-4 text-gray-800 text-lg font-medium">
+						<li class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3"><span class="font-black tracking-tighter text-gray-900">Razão Social / Nome Fantasia:</span> DiskCaçamba</li>
+						<li class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3"><span class="font-black tracking-tighter text-gray-900">Fundador / Responsável:</span> Alberto Silva</li>
+						<li class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3"><span class="font-black tracking-tighter text-gray-900">Anos de Atuação:</span> Desde 2013</li>
+						<li class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3"><span class="font-black tracking-tighter text-gray-900">Endereço:</span> Av. Lucas Evangelista de Oliveira Franco, 890 - Jardim Paraíba, Volta Redonda</li>
+						<li class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3"><span class="font-black tracking-tighter text-gray-900">WhatsApp:</span> (84) 99803-5361</li>
+						<li class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3"><span class="font-black tracking-tighter text-gray-900">E-mail:</span> contato@diskcacambavr.com.br</li>
+						<li class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3"><span class="font-black tracking-tighter text-gray-900">Website:</span> diskcacambasvr.com.br</li>
+					</ul>
+				</div>
+
+			</div>
+
+			<!-- Right Column (Image + CTA) -->
+			<div class="lg:mt-4">
+				<div class="sticky top-28">
+					<!-- Image Container -->
+					<div class="relative">
+						<Image src={frotaImg} alt="Frota de caminhões de caçamba em Volta Redonda" class="w-full h-[360px] object-cover rounded-[1.5rem] shadow-xl" />
+						
+						<!-- Badge (Using Tailwind primary color and 10+ years since 2013) -->
+						<div class="absolute -bottom-6 -right-6 bg-primary w-[130px] h-[130px] rounded-[1.5rem] flex flex-col items-center justify-center shadow-lg">
+							<span class="text-[34px] font-black text-white tracking-tighter leading-none mt-2">10+</span>
+							<span class="text-[9px] font-bold text-white text-center leading-tight mt-1 px-4 tracking-wider uppercase">ANOS DE<br/>ATUAÇÃO</span>
+						</div>
+					</div>
+
+					<!-- Stats Box -->
+					<div class="bg-gray-50 rounded-[1.5rem] p-8 mt-16 shadow-sm border border-gray-100">
+						<h3 class="text-[11px] font-black text-gray-500 tracking-widest uppercase mb-7">Destaques da Operação</h3>
+						<ul class="space-y-4">
+							<li class="flex items-center gap-4">
+								<div class="bg-primary rounded-full p-1 w-[22px] h-[22px] flex items-center justify-center shrink-0">
+									<svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path></svg>
+								</div>
+								<span class="font-bold text-gray-800 text-[15px]">Atendemos Volta Redonda</span>
+							</li>
+							<li class="flex items-center gap-4">
+								<div class="bg-primary rounded-full p-1 w-[22px] h-[22px] flex items-center justify-center shrink-0">
+									<svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path></svg>
+								</div>
+								<span class="font-bold text-gray-800 text-[15px]">+1000 Atendimentos</span>
+							</li>
+							<li class="flex items-center gap-4">
+								<div class="bg-primary rounded-full p-1 w-[22px] h-[22px] flex items-center justify-center shrink-0">
+									<svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path></svg>
+								</div>
+								<span class="font-bold text-gray-800 text-[15px]">Descarte 100% Legalizado</span>
+							</li>
+							<li class="flex items-center gap-4">
+								<div class="bg-primary rounded-full p-1 w-[22px] h-[22px] flex items-center justify-center shrink-0">
+									<svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path></svg>
+								</div>
+								<span class="font-bold text-gray-800 text-[15px]">Frota e Equipamentos Próprios</span>
+							</li>
+						</ul>
+					</div>
+
+					<!-- CTA Button -->
+					<a href="/contato" class="w-full bg-primary hover:bg-orange-600 transition-colors text-white font-black text-[17px] py-4 rounded-xl mt-6 flex items-center justify-center shadow-md">
+						Fale com Nossa Equipe
+					</a>
+
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<Cta 
+		title="Gostou da nossa " 
+		highlight="história?" 
+		subtitle="Faça parte dela e alugue sua caçamba com quem tem experiência de verdade." 
+	/>
+
+</Layout>

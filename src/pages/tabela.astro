@@ -1,0 +1,178 @@
+---
+// src/pages/tabela.astro
+
+const teamNames = [
+	"Atlético Alvorada", "Esporte Clube Maré Alta", "Sol Nascente F.C.", "Grêmio Valente", 
+	"Associação Desportiva Pioneiro", "Guardiões F.C.", "Real Metrópole", "União das Serras", 
+	"Nova Geração E.C.", "Clube de Regatas Estelar", "Trovão F.C.", "Horizonte Esporte Clube", 
+	"Imperial Desportivo", "Progresso E.C.", "Águias do Vale", "Nova Era F.C.", 
+	"Aliança Desportiva", "Independente do Litoral", "Prisma F.C.", "Fênix Esporte Clube", 
+	"Ciclone Atlético", "Estrela do Norte F.C.", "Leões Dourados", "Clube Atlético Vanguarda", 
+	"Bravos F.C.", "Sociedade Esportiva Oásis", "Centauro E.C.", "Titãs do Sul", 
+	"Clube Esportivo Aurora", "Raio Maior F.C."
+];
+
+const teams = teamNames.map((name, index) => {
+	if (index === 0) {
+		return { name, pts: 15, wins: 5, draws: 0, losses: 1, gf: 12, ga: 3, sg: 9, games: 6 };
+	}
+	
+	const games = 6;
+	const maxPts = 13; 
+	const minPts = 0;
+	const step = (maxPts - minPts) / 28;
+	
+	let pts = Math.round(maxPts - (step * (index - 1)));
+	let wins = Math.floor(pts / 3);
+	let draws = pts - (wins * 3);
+	
+	if (wins + draws > games) {
+		wins = games;
+		draws = 0;
+		pts = wins * 3;
+	}
+	
+	const losses = games - wins - draws;
+	
+	const gf = Math.floor(wins * 1.5 + draws * 1 + 1 + Math.random() * 3);
+	const ga = Math.floor(losses * 1.8 + draws * 1 + 1 + Math.random() * 3);
+	const sg = gf - ga;
+
+	return { name, pts, wins, draws, losses, gf, ga, sg, games };
+});
+---
+
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Tabela de Classificação</title>
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+		<style>
+			body {
+				font-family: 'Inter', sans-serif;
+				background: radial-gradient(circle at top, #0a1f2e 0%, #000000 100%);
+				color: white;
+				min-height: 100vh;
+			}
+			h1, h2, .teko-font {
+				font-family: 'Teko', sans-serif;
+			}
+			
+			/* Custom Scrollbar for the table container */
+			.table-container::-webkit-scrollbar {
+				width: 6px;
+				height: 6px;
+			}
+			.table-container::-webkit-scrollbar-track {
+				background: rgba(255, 255, 255, 0.05);
+				border-radius: 4px;
+			}
+			.table-container::-webkit-scrollbar-thumb {
+				background: rgba(52, 211, 153, 0.5); /* emerald-400 with opacity */
+				border-radius: 4px;
+			}
+			.table-container::-webkit-scrollbar-thumb:hover {
+				background: rgba(52, 211, 153, 0.8);
+			}
+
+			/* Glass effect for table rows */
+			.glass-row {
+				background: rgba(15, 23, 42, 0.6);
+				backdrop-filter: blur(8px);
+				transition: all 0.2s ease-in-out;
+			}
+			.glass-row:hover {
+				background: rgba(30, 41, 59, 0.8);
+				transform: scale(1.01);
+				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+				z-index: 10;
+				position: relative;
+			}
+		</style>
+	</head>
+	<body class="p-4 md:p-8 flex flex-col max-w-6xl mx-auto">
+		
+		<!-- Header -->
+		<header class="flex flex-col md:flex-row justify-between items-center mb-3 gap-4 border-b border-slate-700/50 pb-3">
+			<div class="flex items-center gap-4">
+				<a href="/game-menu" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-slate-700 transition-colors text-emerald-400 border border-slate-600">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+				</a>
+				<div>
+					<h1 class="text-5xl italic font-bold tracking-normal text-emerald-400">CLASSIFICAÇÃO BRASIL 2027</h1>
+					<p class="text-gray-400 text-sm tracking-widest uppercase font-bold mt-1">PRÉ UNITED CUP 2027</p>
+				</div>
+			</div>
+		</header>
+
+		<!-- Table Section -->
+		<main class="flex-grow">
+			<div class="table-container w-full overflow-x-auto rounded-xl border border-slate-700/50 shadow-2xl">
+				<table class="w-full text-left border-collapse min-w-[800px]">
+					<thead>
+						<tr class="bg-slate-900/90 text-gray-400 text-xs uppercase tracking-widest border-b border-emerald-500/30">
+							<th class="p-4 font-bold w-12 text-center">#</th>
+							<th class="p-4 font-bold">Time</th>
+							<th class="p-4 font-bold text-center text-emerald-400">Pontos</th>
+							<th class="p-4 font-bold text-center">Vitórias</th>
+							<th class="p-4 font-bold text-center">Empates</th>
+							<th class="p-4 font-bold text-center">Derrotas</th>
+							<th class="p-4 font-bold text-center">Gols a Favor</th>
+							<th class="p-4 font-bold text-center">Gols Contra</th>
+							<th class="p-4 font-bold text-center">Jogos</th>
+						</tr>
+					</thead>
+					<tbody class="text-sm font-medium">
+						{teams.map((team, index) => (
+							<tr class="glass-row border-b border-slate-700/50 hover:bg-slate-800/50">
+								<td class={`p-4 text-center font-bold ${index < 4 ? 'text-emerald-400' : (index >= teams.length - 4 ? 'text-red-400' : 'text-gray-400')}`}>{index + 1}</td>
+								<td class="p-4 flex items-center gap-3">
+									<div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center border border-white/20 text-xs">⚽</div>
+									<span class="font-bold text-white tracking-wide">{team.name}</span>
+								</td>
+								<td class="p-4 text-center font-black text-emerald-400 text-lg">{team.pts}</td>
+								<td class="p-4 text-center text-gray-300">{team.wins}</td>
+								<td class="p-4 text-center text-gray-300">{team.draws}</td>
+								<td class="p-4 text-center text-gray-300">{team.losses}</td>
+								<td class="p-4 text-center text-sky-400 font-bold">{team.gf}</td>
+								<td class="p-4 text-center text-red-400 font-bold">{team.ga}</td>
+								<td class="p-4 text-center text-gray-400">{team.games}</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+		</main>
+
+		<!-- Group Stage Section -->
+		<section class="mt-12 mb-8">
+			<h2 class="text-3xl italic font-bold tracking-normal text-emerald-400 mb-6 uppercase">Fase de Grupos</h2>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+				{Array.from({ length: Math.ceil(teams.length / 4) }).map((_, i) => {
+					const groupTeams = teams.slice(i * 4, (i + 1) * 4);
+					return (
+						<div class="glass-row rounded-xl border border-slate-700/50 p-6 hover:border-emerald-500/50 transition-colors">
+							<h3 class="text-xl font-bold uppercase tracking-widest text-emerald-400 mb-4 border-b border-slate-700/50 pb-2">
+								Grupo {String(i + 1).padStart(2, '0')}
+							</h3>
+							<ul class="flex flex-col gap-3">
+								{groupTeams.map((team, idx) => (
+									<li class="flex items-center gap-3 bg-white/5 p-2 rounded-lg border border-white/5">
+										<span class="text-gray-500 font-bold text-xs w-4 text-center">{idx + 1}</span>
+										<span class="font-bold text-white text-sm truncate">{team.name}</span>
+									</li>
+								))}
+							</ul>
+						</div>
+					);
+				})}
+			</div>
+		</section>
+
+	</body>
+</html>

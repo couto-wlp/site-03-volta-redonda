@@ -1,0 +1,248 @@
+---
+// src/pages/game-menu.astro
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>FC 26 Menu Graphics</title>
+		<!-- Google Fonts for futuristic look -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+		<style>
+			body {
+				font-family: 'Inter', sans-serif;
+				/* Base dark background with a subtle gradient */
+				background: radial-gradient(circle at 20% 50%, #061922 0%, #000000 100%);
+				color: white;
+			}
+			h1, h2, h3, .teko-font {
+				font-family: 'Teko', sans-serif;
+			}
+			
+			/* Custom styles for the cards to handle the image blend */
+			.menu-card {
+				position: relative;
+				overflow: hidden;
+				transition: transform 0.2s ease-in-out, border-color 0.2s;
+			}
+			.menu-card:hover {
+				transform: scale(1.02);
+				border-color: #38bdf8; /* light blue/cyan highlight */
+			}
+			.menu-card::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				width: 60%;
+				background-size: cover;
+				background-position: center;
+				z-index: 0;
+				/* Fade effect from left to right */
+				mask-image: linear-gradient(to right, transparent 0%, black 100%);
+				-webkit-mask-image: linear-gradient(to right, transparent 0%, black 100%);
+			}
+			/* Individual card backgrounds */
+			.card-kickoff::before { background-image: url('https://images.unsplash.com/photo-1518605368461-1ee1823eb5ce?q=80&w=600&auto=format&fit=crop'); }
+			.card-master::before { background-image: url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop'); }
+			.card-legend::before { background-image: url('https://images.unsplash.com/photo-1551280857-236cb4c92ce7?q=80&w=600&auto=format&fit=crop'); }
+			.card-training::before { background-image: url('https://images.unsplash.com/photo-1526232761682-d26e03ac148e?q=80&w=600&auto=format&fit=crop'); }
+			.card-stats::before { background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop'); }
+			.card-music::before { background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=600&auto=format&fit=crop'); }
+			.card-edit::before { background-image: url('https://images.unsplash.com/photo-1504215680853-026ed2a45def?q=80&w=600&auto=format&fit=crop'); }
+			.card-settings::before { background-image: url('https://images.unsplash.com/photo-1614064641913-6b2063b2f567?q=80&w=600&auto=format&fit=crop'); }
+			.card-online::before { background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600&auto=format&fit=crop'); }
+			
+			.content-z {
+				position: relative;
+				z-index: 10;
+			}
+		</style>
+	</head>
+	<body class="min-h-screen p-4 md:p-8 flex flex-col max-w-7xl mx-auto">
+		<!-- Header Section -->
+		<header class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+			<div class="flex items-center gap-4">
+				<div>
+					<div class="flex items-baseline gap-3">
+						<h1 class="text-5xl italic font-bold tracking-normal uppercase">PRIME FOOTBALL LEAGUE</h1>
+					</div>
+				</div>
+			</div>
+			
+			<button class="border border-emerald-400 text-emerald-400 hover:bg-emerald-400 hover:text-black transition-colors px-6 py-2 rounded-full font-bold uppercase tracking-wider text-sm">
+				Free Version
+			</button>
+		</header>
+
+		<!-- Main Grid -->
+		<main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 flex-grow">
+			
+			<!-- Card 1 (Edit - Col 1, Row 1) -->
+			<div class="menu-card card-edit bg-slate-900/80 border border-slate-700/50 rounded-xl p-6 flex flex-col justify-center min-h-[160px]">
+				<div class="content-z flex items-start gap-4">
+					<div class="w-12 h-12 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center border border-sky-500/30 shrink-0">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+					</div>
+					<div>
+						<h3 class="text-2xl font-bold uppercase tracking-wide mb-1">Edit</h3>
+						<p class="text-gray-400 text-xs leading-tight">Customize everything<br>Edit players, teams, kits<br>and more</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Card 2 (Master League - Col 2, Row 1) -->
+			<a href="/tabela" class="block menu-card card-master bg-slate-900/80 border border-slate-700/50 rounded-xl p-6 flex flex-col justify-center min-h-[160px] cursor-pointer">
+				<div class="content-z flex items-start gap-4">
+					<div class="w-12 h-12 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center border border-purple-500/30 shrink-0">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+					</div>
+					<div>
+						<h3 class="text-2xl font-bold uppercase tracking-wide mb-1">UNITED CUP 2027</h3>
+						<p class="text-gray-400 text-xs leading-tight">Take control<br>Build your legacy</p>
+					</div>
+				</div>
+			</a>
+
+			<!-- Card 3 (Become a Legend - Col 3, Row 1) -->
+			<div class="menu-card card-legend bg-slate-900/80 border border-slate-700/50 rounded-xl p-6 flex flex-col justify-center min-h-[160px]">
+				<div class="content-z flex items-start gap-4">
+					<div class="w-12 h-12 rounded-lg bg-teal-500/20 text-teal-400 flex items-center justify-center border border-teal-500/30 shrink-0">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polygon points="16 11 18 13 22 9"/></svg>
+					</div>
+					<div>
+						<h3 class="text-2xl font-bold uppercase tracking-wide mb-1">RANKING JOGADORES</h3>
+						<p class="text-gray-400 text-xs leading-tight">Live the dream<br>Create your player<br>Rise to glory</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Card 4 (Treino - Col 1, Row 2) -->
+			<div class="menu-card card-training bg-slate-900/80 border border-slate-700/50 rounded-xl p-6 flex flex-col justify-center min-h-[160px]">
+				<div class="content-z flex items-start gap-4">
+					<div class="w-12 h-12 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center border border-indigo-500/30 shrink-0">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 9-5-9-5-9 5 9 5z"/><path d="m12 14 9-5-9-5-9 5 9 5z"/><path d="m12 14 9-5-9-5-9 5 9 5z"/><path d="m2 22 10-5 10 5"/></svg>
+					</div>
+					<div>
+						<h3 class="text-2xl font-bold uppercase tracking-wide mb-1">Treino</h3>
+						<p class="text-gray-400 text-xs leading-tight">Improve your skills<br>Free Training, Practice Arena</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Card 5 (Statistics - Col 2, Row 2) -->
+			<div class="menu-card card-stats bg-slate-900/80 border border-slate-700/50 rounded-xl p-6 flex flex-col justify-center min-h-[160px]">
+				<div class="content-z flex items-start gap-4">
+					<div class="w-12 h-12 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-500/30 shrink-0">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+					</div>
+					<div>
+						<h3 class="text-2xl font-bold uppercase tracking-wide mb-1">International Cup 2029</h3>
+						<p class="text-gray-400 text-xs leading-tight">Track your progress<br>Detailed stats and analysis</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Card 6 (Music & Audio - Col 3, Row 2) -->
+			<div class="menu-card card-music bg-slate-900/80 border border-slate-700/50 rounded-xl p-6 flex flex-col justify-center min-h-[160px]">
+				<div class="content-z flex items-start gap-4">
+					<div class="w-12 h-12 rounded-lg bg-fuchsia-500/20 text-fuchsia-400 flex items-center justify-center border border-fuchsia-500/30 shrink-0">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+					</div>
+					<div>
+						<h3 class="text-2xl font-bold uppercase tracking-wide mb-1">RANKING TIMES</h3>
+						<p class="text-gray-400 text-xs leading-tight">Set the mood<br>Customize your experience</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Card 7 (Amistoso - Col 1, Row 3) -->
+			<div class="menu-card card-kickoff bg-slate-900/80 border border-slate-700/50 rounded-xl p-6 flex flex-col justify-center min-h-[160px]">
+				<div class="content-z flex items-start gap-4">
+					<div class="w-12 h-12 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-500/30 shrink-0">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2v20"/><path d="M2 12h20"/></svg>
+					</div>
+					<div>
+						<h3 class="text-2xl font-bold uppercase tracking-wide mb-1">Amistoso</h3>
+						<p class="text-gray-400 text-xs leading-tight">Play a match<br>Exhibition match,<br>Penalties, Random Select</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Card 8 (Settings - Col 2, Row 3) -->
+			<div class="menu-card card-settings bg-slate-900/80 border border-slate-700/50 rounded-xl p-6 flex flex-col justify-center min-h-[160px]">
+				<div class="content-z flex items-start gap-4">
+					<div class="w-12 h-12 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center border border-purple-500/30 shrink-0">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+					</div>
+					<div>
+						<h3 class="text-2xl font-bold uppercase tracking-wide mb-1">CONFIGURAÇÕES</h3>
+						<p class="text-gray-400 text-xs leading-tight">Configure your experience<br>Gameplay, Camera, Audio<br>and more</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Card 9 (Online - Col 3, Row 3) -->
+			<div class="menu-card card-online bg-slate-900/80 border border-slate-700/50 rounded-xl p-6 flex flex-col justify-center min-h-[160px]">
+				<div class="content-z flex items-start gap-4">
+					<div class="w-12 h-12 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-500/30 shrink-0">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+					</div>
+					<div>
+						<h3 class="text-2xl font-bold uppercase tracking-wide mb-1">RANKING COMPETIÇÕES</h3>
+						<p class="text-gray-400 text-xs leading-tight">Compete worldwide<br>Online matches<br>Rankings & more</p>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<!-- Footer Section -->
+		<footer class="mt-8 pt-6 border-t border-slate-700/50 flex flex-col lg:flex-row justify-between items-center gap-6">
+			
+			<div class="flex flex-col sm:flex-row gap-6 lg:gap-12 w-full lg:w-auto">
+				<div>
+					<h4 class="text-emerald-400 text-xs font-bold uppercase tracking-widest mb-3">Features</h4>
+					<div class="flex gap-4 lg:gap-8 text-xs text-gray-400">
+						<div class="flex items-center gap-2">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-300"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
+							<span>Modern FC 26<br>Inspired Design</span>
+						</div>
+						<div class="flex items-center gap-2">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-300"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+							<span>High Quality<br>Graphics</span>
+						</div>
+						<div class="flex items-center gap-2">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-300"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+							<span>Optimized for<br>PES 2021 & FL 2026</span>
+						</div>
+						<div class="flex items-center gap-2">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-300"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+							<span>Easy to Install<br>Drop & Play</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="hidden lg:block w-px bg-slate-700/50 self-stretch"></div>
+
+				<div>
+					<h4 class="text-emerald-400 text-xs font-bold uppercase tracking-widest mb-3">Compatible With</h4>
+					<div class="flex items-center gap-4">
+						<span class="font-bold text-white tracking-wide">PES 2021 <span class="bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded text-[10px] ml-1">SEASON UPDATE</span></span>
+						<span class="font-bold text-white tracking-wide">FOOTBALL LIFE 2026</span>
+					</div>
+				</div>
+			</div>
+
+			<button class="bg-slate-800 hover:bg-slate-700 border border-slate-600 transition-colors px-8 py-3 rounded-xl flex flex-col items-center justify-center shrink-0">
+				<span class="text-emerald-400 font-bold uppercase tracking-widest">Free</span>
+				<span class="text-emerald-400 font-bold uppercase tracking-widest">Version</span>
+			</button>
+		</footer>
+
+	</body>
+</html>

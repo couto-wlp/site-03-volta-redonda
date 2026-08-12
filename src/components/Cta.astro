@@ -1,0 +1,27 @@
+---
+interface Props {
+  title?: string;
+  highlight?: string;
+  subtitle?: string;
+}
+
+const { 
+  title = "Pronto para limpar ", 
+  highlight = "sua obra?",
+  subtitle = "Fale com nossa equipe agora mesmo e garanta sua caçamba com o melhor preço e agilidade da região."
+} = Astro.props;
+---
+<section class="bg-gray-100 py-16 md:py-24 w-screen relative left-1/2 -translate-x-1/2 text-center overflow-hidden -mb-24 md:-mb-32">
+    <div class="relative z-10 max-w-4xl mx-auto px-6 md:px-12">
+        <h2 class="text-[31px] md:text-[43px] font-black tracking-tighter leading-tight text-gray-900 mb-8">{title}<span class="text-primary">{highlight}</span></h2>
+        <p class="text-xl text-gray-900 mb-12 font-medium leading-relaxed">{subtitle}</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-6">
+            <a href="https://wa.me/5584998035361" class="bg-primary text-white px-10 py-5 rounded-xl text-xl font-bold tracking-tighter hover:brightness-110 hover:scale-105 active:scale-95 transition-all shadow-xl shadow-primary/20">
+                Conversar no WhatsApp
+            </a>
+            <a href="https://wa.me/5584998035361" class="bg-white text-accent px-10 py-5 rounded-xl text-xl font-bold tracking-tighter hover:bg-gray-100 hover:scale-105 active:scale-95 transition-all shadow-xl border border-gray-200">
+                Ligar Agora
+            </a>
+        </div>
+    </div>
+</section>

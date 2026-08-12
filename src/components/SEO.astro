@@ -1,0 +1,29 @@
+---
+import { SITE_CONFIG } from '../data/config';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = SITE_CONFIG.description } = Astro.props;
+---
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="generator" content={Astro.generator} />
+
+<title>{title} | {SITE_CONFIG.name}</title>
+<meta name="description" content={description} />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={SITE_CONFIG.domain} />
+<meta property="og:title" content={`${title} | ${SITE_CONFIG.name}`} />
+<meta property="og:description" content={description} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={SITE_CONFIG.domain} />
+<meta property="twitter:title" content={`${title} | ${SITE_CONFIG.name}`} />
+<meta property="twitter:description" content={description} />

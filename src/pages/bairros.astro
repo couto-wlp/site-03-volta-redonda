@@ -1,0 +1,121 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import Cta from '../components/Cta.astro';
+
+const bairros = await getCollection('bairros');
+---
+
+<Layout title="Bairros de Atuação - DiskCaçamba">
+	<div class="w-full mb-24 lg:mb-32">
+		
+		<div class="text-center mb-16">
+			<h1 class="text-[31px] md:text-[43px] font-black tracking-tighter leading-tight text-gray-900 mb-6">
+				Bairros de <span class="text-primary">Atuação</span>
+			</h1>
+			<p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-600">
+			Entregamos sua caçamba rapidamente em todos os bairros de Volta Redonda. Garantimos total pontualidade, segurança e eficiência no seu serviço.
+		</p>
+		</div>
+
+		<div class="flex flex-col lg:flex-row gap-3">
+			
+			{/* Sidebar */}
+			<aside class="w-full lg:w-1/4 xl:w-1/4 flex-shrink-0">
+				
+				<!-- Menu Mobile: Dropdown -->
+				<div class="lg:hidden mb-8">
+					<details class="group bg-white rounded-[28px] border border-slate-200/80 shadow-sm overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+						<summary class="flex items-center justify-between p-5 cursor-pointer list-none font-black tracking-tighter text-slate-900 text-[18px]">
+							<div class="flex items-center gap-3">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+								Escolher Bairro
+							</div>
+							<span class="transition-transform group-open:rotate-180 text-slate-400">
+								<svg fill="none" height="20" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" width="20"><path d="M6 9l6 6 6-6"></path></svg>
+							</span>
+						</summary>
+						<div class="px-6 pb-6 max-h-[300px] overflow-y-auto custom-scrollbar border-t border-slate-100">
+							<ul class="space-y-1 mt-2">
+								{bairros.map((bairro: CollectionEntry<'bairros'>) => (
+									<li class="border-b border-slate-100 last:border-0">
+										<a href={`/bairros/${bairro.slug}`} class="block py-3 text-slate-600 hover:text-primary font-bold transition-colors">
+											{bairro.data.name}
+										</a>
+									</li>
+								))}
+							</ul>
+						</div>
+					</details>
+				</div>
+
+				<!-- Menu Desktop: Sidebar fixa -->
+				<div class="hidden lg:block bg-slate-50 rounded-3xl p-6 h-[600px] overflow-y-auto sticky top-24 custom-scrollbar border border-slate-100">
+					<div class="flex items-center gap-3 mb-8">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+						<h2 class="text-xl font-black tracking-tighter text-slate-800">Bairros Atendidos</h2>
+					</div>
+					
+					<ul class="space-y-1">
+						{bairros.map((bairro: CollectionEntry<'bairros'>) => (
+							<li class="border-b border-slate-200/60 last:border-0">
+								<a href={`/bairros/${bairro.slug}`} class="flex items-center justify-between py-3.5 pr-2 text-slate-600 hover:text-primary transition-colors group">
+									<span class="text-[15px] font-bold">{bairro.data.name}</span>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-300 group-hover:text-primary transition-colors"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+								</a>
+							</li>
+						))}
+					</ul>
+				</div>
+			</aside>
+
+			{/* Cards Grid */}
+			<main class="flex-1">
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+					{bairros.map((bairro: CollectionEntry<'bairros'>) => (
+						<div class="bg-slate-50 border border-slate-200/60 rounded-3xl p-8 shadow-[0_4px_24px_-12px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_32px_-12px_rgba(0,0,0,0.12)] transition-all duration-300 flex flex-col h-full group">
+							<span class="text-xs text-slate-500 font-medium mb-3 block tracking-wide">Atendimento em Volta Redonda</span>
+							
+							<h3 class="text-[20px] font-bold text-slate-800 mb-4 leading-[1.35] group-hover:text-orange-600 transition-colors">
+								{bairro.data.title} | Volta Redonda - RJ
+							</h3>
+							
+							<p class="text-[15px] text-slate-500 mb-8 leading-relaxed flex-grow">
+								{bairro.data.desc}
+							</p>
+							
+							<a href={`/bairros/${bairro.slug}`} class="inline-flex items-center gap-1.5 text-orange-600 font-bold text-base hover:text-orange-700 transition-colors mt-auto">
+								Ver Detalhes do Bairro 
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+							</a>
+						</div>
+					))}
+				</div>
+			</main>
+
+		</div>
+	</div>
+
+	<style>
+		/* Custom scrollbar for the sidebar */
+		.custom-scrollbar::-webkit-scrollbar {
+			width: 6px;
+		}
+		.custom-scrollbar::-webkit-scrollbar-track {
+			background: transparent;
+		}
+		.custom-scrollbar::-webkit-scrollbar-thumb {
+			background-color: #cbd5e1;
+			border-radius: 20px;
+		}
+		.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+			background-color: #94a3b8;
+		}
+	</style>
+
+	<Cta 
+		title="O seu bairro está na " 
+		highlight="nossa rota?" 
+		subtitle="Fale com nossa equipe agora mesmo e consulte a disponibilidade imediata." 
+	/>
+</Layout>
