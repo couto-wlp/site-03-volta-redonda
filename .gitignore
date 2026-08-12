@@ -17,3 +17,5 @@ package-lock.json
 .DS_Store
 
 .vercel
+
+mingit/
