@@ -8,7 +8,7 @@ export default {
         lg: '17px',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['"Inter Variable"', 'Inter', 'sans-serif'],
       },
       colors: {
         primary: '#f97316', // Laranja
