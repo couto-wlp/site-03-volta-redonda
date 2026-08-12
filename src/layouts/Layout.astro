@@ -4,6 +4,7 @@ import Footer from '../components/Footer.astro';
 import SEO from '../components/SEO.astro';
 import SchemaLocalBusiness from '../components/SchemaLocalBusiness.astro';
 import WhatsAppBtn from '../components/WhatsAppBtn.astro';
+import '@fontsource-variable/inter';
 
 interface Props {
 	title: string;
@@ -19,10 +20,7 @@ const { title, description } = Astro.props;
 		<SEO title={title} description={description} />
 		<SchemaLocalBusiness />
 		
-		<!-- Fonte Inter -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 	</head>
 	<body class="font-sans antialiased text-gray-600 bg-white text-lg">
 		<Header />
