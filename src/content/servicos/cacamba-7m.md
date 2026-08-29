@@ -14,7 +14,7 @@ Por suportar materiais volumosos e leves com eficiência, esta opção otimiza a
 - **Instalação de Drywall e Gesso**: Excelente para placas de gesso acartonado, perfis metálicos e isolamentos térmicos que ocupam bastante espaço.
 - **Limpeza e Manutenção Industrial**: Remoção eficiente de sucata leve, resíduos não perigosos de processos fabris e reformas de galpões.
 
-<img src="/cacamba-7m.webp" alt="Caçamba de 7m³" class="w-full max-w-[445px] md:max-w-[595px] mx-auto rounded-2xl shadow-sm mb-8 mt-12" />
+<img src="/cacamba-7m.webp" alt="Caçamba de 7m³" loading="lazy" decoding="async" class="w-full max-w-[445px] md:max-w-[595px] mx-auto rounded-2xl shadow-sm mb-8 mt-12" />
 
 <div class="not-prose my-16">
   <h3 class="text-[28px] font-black tracking-tighter text-gray-900 mb-8">Especificações Técnicas</h3>

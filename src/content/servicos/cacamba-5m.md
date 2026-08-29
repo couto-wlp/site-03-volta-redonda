@@ -14,7 +14,7 @@ Alugue com a garantia de um serviço ágil, seguro e em total conformidade com a
 - **Construções de Médio Porte**: Excelente para o descarte pesado gerado por demolições de alvenaria, fundações e escavações de piscinas.
 - **Condomínios Residenciais**: A solução ideal para manutenções programadas de áreas comuns e revitalização de fachadas, respeitando as normas de trânsito e estacionamento locais.
 
-<img src="/cacamba-5m.webp" alt="Caçamba de 5m³" class="w-full max-w-[445px] md:max-w-[595px] mx-auto rounded-2xl shadow-sm mb-8 mt-12" />
+<img src="/cacamba-5m.webp" alt="Caçamba de 5m³" loading="lazy" decoding="async" class="w-full max-w-[445px] md:max-w-[595px] mx-auto rounded-2xl shadow-sm mb-8 mt-12" />
 
 <div class="not-prose my-16">
   <h3 class="text-[28px] font-black tracking-tighter text-gray-900 mb-8">Especificações Técnicas</h3>

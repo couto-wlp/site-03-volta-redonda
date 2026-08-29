@@ -14,7 +14,7 @@ Com um design compacto e prático, ela foi pensada para caber facilmente na sua 
 - **Limpeza de Terrenos e Quintais**: Ideal para o descarte de terra, resíduos orgânicos e galhos de podas de médio porte.
 - **Construção e Reparos Rápidos**: Excelente para a coleta de sobras de alvenaria, tijolos, concreto e argamassa.
 
-<img src="/cacamba-4m.webp" alt="Caçamba de 4m³" class="w-full max-w-[445px] md:max-w-[595px] mx-auto rounded-2xl shadow-sm mb-8 mt-12" />
+<img src="/cacamba-4m.webp" alt="Caçamba de 4m³" loading="lazy" decoding="async" class="w-full max-w-[445px] md:max-w-[595px] mx-auto rounded-2xl shadow-sm mb-8 mt-12" />
 
 <div class="not-prose my-16">
   <h3 class="text-[28px] font-black tracking-tighter text-gray-900 mb-8">Especificações Técnicas</h3>

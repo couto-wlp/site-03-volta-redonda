@@ -14,7 +14,7 @@ Projetada para máxima capacidade de carga e volume, ela otimiza a sua logístic
 - **Indústrias e Galpões Logísticos**: Perfeita para a rotina de descarte de grandes geradores, recolhendo sucata volumosa, paletes, plásticos, borrachas e sobras de processos fabris.
 - **Limpeza de Grandes Áreas e Loteamentos**: Ideal para a preparação de terrenos de grande extensão, recolhendo troncos, galhadas pesadas e resíduos mistos em grande quantidade.
 
-<img src="/cacamba-8m.jpg" alt="Caçamba de 8m³" class="w-full max-w-[445px] md:max-w-[595px] mx-auto rounded-2xl shadow-sm mb-8 mt-12" />
+<img src="/cacamba-8m.jpg" alt="Caçamba de 8m³" loading="lazy" decoding="async" class="w-full max-w-[445px] md:max-w-[595px] mx-auto rounded-2xl shadow-sm mb-8 mt-12" />
 
 <div class="not-prose my-16">
   <h3 class="text-[28px] font-black tracking-tighter text-gray-900 mb-8">Especificações Técnicas</h3>

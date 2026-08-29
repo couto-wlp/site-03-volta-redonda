@@ -14,7 +14,7 @@ O grande diferencial deste modelo, além do seu tamanho colossal, é o sistema d
 - **Grandes Obras e Terraplenagem**: Remoção massiva de terra, entulhos de demolição pesada e reestruturação de galpões ou shoppings.
 - **Centros Logísticos e Atacadistas**: Ideal para locais que geram um acúmulo muito rápido e constante de materiais recicláveis ou lixo não perigoso de baixo peso e alto volume.
 
-<img src="/cacamba-roll-on.webp" alt="Caçamba Roll-On" class="w-full max-w-[445px] md:max-w-[595px] mx-auto rounded-2xl shadow-sm mb-8 mt-12" />
+<img src="/cacamba-roll-on.webp" alt="Caçamba Roll-On" loading="lazy" decoding="async" class="w-full max-w-[445px] md:max-w-[595px] mx-auto rounded-2xl shadow-sm mb-8 mt-12" />
 
 <div class="not-prose my-16">
   <h3 class="text-[28px] font-black tracking-tighter text-gray-900 mb-8">Especificações Técnicas (Modelo de 30m³)</h3>

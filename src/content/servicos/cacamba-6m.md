@@ -14,7 +14,7 @@ Com excelente custo-benefício, ela atende perfeitamente reformas residenciais m
 - **Troca de Telhados e Madeiramentos**: O espaço extra é perfeito para o descarte de madeiras antigas, telhas quebradas e materiais que costumam fazer muito volume.
 - **Limpeza de Galpões e Lotes**: Excelente para a remoção de mato, terra, galhos volumosos e entulhos mistos provenientes da limpeza de terrenos médios.
 
-<img src="/cacamba-6m.jpg" alt="Caçamba de 6m³" class="w-full max-w-[445px] md:max-w-[595px] mx-auto rounded-2xl shadow-sm mb-8 mt-12" />
+<img src="/cacamba-6m.jpg" alt="Caçamba de 6m³" loading="lazy" decoding="async" class="w-full max-w-[445px] md:max-w-[595px] mx-auto rounded-2xl shadow-sm mb-8 mt-12" />
 
 <div class="not-prose my-16">
   <h3 class="text-[28px] font-black tracking-tighter text-gray-900 mb-8">Especificações Técnicas</h3>
